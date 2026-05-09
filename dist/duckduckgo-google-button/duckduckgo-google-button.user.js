@@ -12,7 +12,6 @@
 // @grant        none
 // @license      MIT
 // ==/UserScript==
-Object.defineProperty(exports, "__esModule", { value: true });
 (function () {
     'use strict';
     const BTN_ID = 'tm-google-search-btn';

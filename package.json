@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Userscripts for DuckDuckGo to Google button and Google Root styling",
   "scripts": {
-    "build": "tsc && node fix-headers.js",
+    "build": "tsc",
     "build:watch": "tsc --watch",
     "clean": "rm -rf dist",
     "prepare": "npm run build"

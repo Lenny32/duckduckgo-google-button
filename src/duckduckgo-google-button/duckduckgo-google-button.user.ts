@@ -71,7 +71,7 @@
     }
 
     function getQuery(): string {
-        const input =(
+        const input = (
             document.querySelector<HTMLInputElement>('#search_form_input') ||
             document.querySelector<HTMLInputElement>('input[name="q"]')
         );
@@ -111,7 +111,7 @@
             return;
         }
 
-        const ddgButton =(
+        const ddgButton = (
             document.querySelector<HTMLButtonElement>('#search_form button[type="submit"]') ||
             document.querySelector<HTMLButtonElement>('form[action="/"] button[type="submit"]')
         );

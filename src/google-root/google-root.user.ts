@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Root
 // @namespace    https://github.com/Lenny32/duckduckgo-google-button
-// @version      1.0
+// @version      1.1
 // @description  Adds custom styling to Google search box and dropdown elements
 // @author       Lenny32
 // @match        https://www.google.com/search?q=*
@@ -16,18 +16,15 @@
 (function (): void {
     'use strict';
 
-    function findAndModifyRootElement(): void {
-        // Find the Google search box
+    function findAndModifyRootElement(): boolean {
         const searchBox = document.querySelector<HTMLTextAreaElement>('textarea[name="q"]');
-        if (!searchBox) return;
+        if (!searchBox) return false;
 
-        // Start from the search box and recursively check parents
         let current: HTMLElement | null = searchBox;
 
         while (current && current !== document.body) {
             const styles = window.getComputedStyle(current);
 
-            // Check if element has both border and border-radius
             const hasBorder =
                 styles.borderTopWidth !== '0px' ||
                 styles.borderRightWidth !== '0px' ||
@@ -41,24 +38,26 @@
                 styles.borderBottomRightRadius !== '0px';
 
             if (hasBorder && hasBorderRadius) {
-                // Apply red glow effect to the root container
                 current.style.boxShadow = '0 0 15px 3px rgba(255, 0, 0, 0.8)';
-                break;
+                return true;
             }
 
-            // Move up to the parent element
             current = current.parentElement;
         }
+
+        return false;
     }
 
-    // Wait for page to load and apply modifications
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', findAndModifyRootElement);
     } else {
         findAndModifyRootElement();
     }
 
-    // Watch for dynamic changes
-    const observer = new MutationObserver(findAndModifyRootElement);
+    const observer = new MutationObserver(() => {
+        if (findAndModifyRootElement()) {
+            observer.disconnect();
+        }
+    });
     observer.observe(document.body, { childList: true, subtree: true });
 })();
