@@ -146,7 +146,6 @@ npm run build
 
 The build process:
 1. Compiles TypeScript source files to JavaScript using `tsc`
-2. Runs `fix-headers.js` to ensure userscript metadata headers are at the very top of each file (removes any emitted `"use strict"` that would precede the header)
 
 The compiled files will be output to the `dist/` directory:
 - `dist/duckduckgo-google-button/duckduckgo-google-button.user.js`
