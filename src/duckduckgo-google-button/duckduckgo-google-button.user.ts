@@ -6,13 +6,14 @@
 // @author       Lenny32
 // @match        https://duckduckgo.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=duckduckgo.com
-// @updateURL    https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/duckduckgo-google-button/duckduckgo-google-button.user.js
-// @downloadURL  https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/duckduckgo-google-button/duckduckgo-google-button.user.js
+// @updateURL    https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/duckduckgo-google-button/duckduckgo-google-button.user.js
+// @downloadURL  https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/duckduckgo-google-button/duckduckgo-google-button.user.js
 // @supportURL   https://github.com/Lenny32/duckduckgo-google-button/issues
 // @grant        none
 // @license      MIT
 // ==/UserScript==
-(function () {
+
+(function (): void {
     'use strict';
 
     const BTN_ID = 'tm-google-search-btn';
@@ -22,7 +23,7 @@
         return;
     }
 
-    function injectStyles() {
+    function injectStyles(): void {
         if (document.getElementById(STYLE_ID)) {
             return;
         }
@@ -69,10 +70,11 @@
         document.head.appendChild(style);
     }
 
-    function getQuery() {
-        const input =
-            document.querySelector('#search_form_input') ||
-            document.querySelector('input[name="q"]');
+    function getQuery(): string {
+        const input =(
+            document.querySelector<HTMLInputElement>('#search_form_input') ||
+            document.querySelector<HTMLInputElement>('input[name="q"]')
+        );
 
         if (input && input.value.trim()) {
             return input.value.trim();
@@ -81,7 +83,7 @@
         return new URLSearchParams(location.search).get('q')?.trim() || '';
     }
 
-    function openGoogle() {
+    function openGoogle(): void {
         const q = getQuery();
         if (!q) {
             return;
@@ -91,27 +93,28 @@
         window.open(url, '_blank', 'noopener,noreferrer');
     }
 
-    function createButton(height) {
+    function createButton(height?: number): HTMLButtonElement {
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.id = BTN_ID;
         btn.textContent = 'Google';
         btn.style.height = `${height || 40}px`;
-        btn.addEventListener('click', (event) => {
+        btn.addEventListener('click', (event: MouseEvent) => {
             event.preventDefault();
             openGoogle();
         });
         return btn;
     }
 
-    function addGoogleButton() {
+    function addGoogleButton(): void {
         if (document.getElementById(BTN_ID)) {
             return;
         }
 
-        const ddgButton =
-            document.querySelector('#search_form button[type="submit"]') ||
-            document.querySelector('form[action="/"] button[type="submit"]');
+        const ddgButton =(
+            document.querySelector<HTMLButtonElement>('#search_form button[type="submit"]') ||
+            document.querySelector<HTMLButtonElement>('form[action="/"] button[type="submit"]')
+        );
 
         if (!ddgButton) {
             return;
