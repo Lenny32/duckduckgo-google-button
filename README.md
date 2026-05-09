@@ -5,8 +5,8 @@ A userscript that adds a convenient Google search button to DuckDuckGo search re
 ## Quick Install
 
 **Click to install:**
-- **[DuckDuckGo to Google Button](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/duckduckgo-google-button.user.js)** - Adds a Google button to DuckDuckGo search
-- **[Google Root](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/google-root.user.js)** - Adds custom styling to Google search elements
+- **[DuckDuckGo to Google Button](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/duckduckgo-google-button/duckduckgo-google-button.user.js)** - Adds a Google button to DuckDuckGo search
+- **[Google Root](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/google-root/google-root.user.js)** - Adds custom styling to Google search elements
 
 *Requires a userscript manager like [Tampermonkey](https://www.tampermonkey.net/) to be installed first.*
 
@@ -29,7 +29,7 @@ A userscript that adds a convenient Google search button to DuckDuckGo search re
    - [Greasemonkey](https://www.greasespot.net/) (Firefox)
 
 2. Click the install link below:
-   - **[Install DuckDuckGo to Google Button](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/duckduckgo-google-button.user.js)**
+   - **[Install DuckDuckGo to Google Button](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/duckduckgo-google-button/duckduckgo-google-button.user.js)**
 
 3. Your userscript manager will prompt you to install the script. Click "Install" or "Confirm"
 
@@ -43,7 +43,7 @@ A userscript that adds a convenient Google search button to DuckDuckGo search re
 
 3. Create a new script
 
-4. Copy the contents of [`duckduckgo-google-button.user.js`](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/duckduckgo-google-button.user.js) and paste it into the editor
+4. Copy the contents of [`duckduckgo-google-button.user.js`](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/duckduckgo-google-button/duckduckgo-google-button.user.js) and paste it into the editor
 
 5. Save the script
 
@@ -75,7 +75,7 @@ A companion userscript that adds custom styling to Google search elements for en
 1. Make sure you have a userscript manager installed (see above)
 
 2. Click the install link below:
-   - **[Install Google Root](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/google-root.user.js)**
+   - **[Install Google Root](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/google-root/google-root.user.js)**
 
 3. Your userscript manager will prompt you to install the script. Click "Install" or "Confirm"
 
@@ -89,7 +89,7 @@ A companion userscript that adds custom styling to Google search elements for en
 
 3. Create a new script
 
-4. Copy the contents of [`google-root.user.js`](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/google-root.user.js) and paste it into the editor
+4. Copy the contents of [`google-root.user.js`](https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/google-root/google-root.user.js) and paste it into the editor
 
 5. Save the script
 
@@ -122,3 +122,50 @@ Issues and pull requests are welcome! Please feel free to contribute.
 ## Support
 
 If you encounter any issues, please [open an issue](https://github.com/Lenny32/duckduckgo-google-button/issues) on GitHub.
+
+---
+
+## Development
+
+This project uses TypeScript for development. The built userscript files are in the `dist/` directory.
+
+### Setup
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Building
+
+Run the build command to compile TypeScript to JavaScript:
+```bash
+npm run build
+```
+
+The build process:
+1. Compiles TypeScript source files to JavaScript using `tsc`
+
+The compiled files will be output to the `dist/` directory:
+- `dist/duckduckgo-google-button/duckduckgo-google-button.user.js`
+- `dist/google-root/google-root.user.js`
+
+### Project Structure
+
+```
+.
+├── src/                    # TypeScript source files
+│   ├── duckduckgo-google-button/
+│   │   └── duckduckgo-google-button.user.ts
+│   └── google-root/
+│       └── google-root.user.ts
+├── dist/                   # Compiled userscript files
+│   ├── duckduckgo-google-button/
+│   │   └── duckduckgo-google-button.user.js
+│   └── google-root/
+│       └── google-root.user.js
+├── package.json
+├── tsconfig.json
+└── README.md
+```
