@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Google Root
 // @namespace    https://github.com/Lenny32/duckduckgo-google-button
-// @version      1.0
+// @version      1.1
 // @description  Adds custom styling to Google search box and dropdown elements
 // @author       Lenny32
 // @match        https://www.google.com/search?q=*
