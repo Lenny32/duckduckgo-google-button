@@ -4,7 +4,7 @@
 // @version      1.1
 // @description  Adds custom styling to Google search box and dropdown elements
 // @author       Lenny32
-// @match        https://www.google.com/search?q=*
+// @match        https://www.google.com/search*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=google.com
 // @updateURL    https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/google-root/google-root.user.js
 // @downloadURL  https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/dist/google-root/google-root.user.js

@@ -105,7 +105,12 @@
         const btn = createButton(ddgButton.offsetHeight || 40);
         ddgButton.after(btn);
     }
-    const observer = new MutationObserver(addGoogleButton);
+    const observer = new MutationObserver(() => {
+        addGoogleButton();
+        if (document.getElementById(BTN_ID)) {
+            observer.disconnect();
+        }
+    });
     observer.observe(document.body, { childList: true, subtree: true });
     addGoogleButton();
 })();
