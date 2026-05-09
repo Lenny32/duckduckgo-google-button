@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Google Root
 // @namespace    https://github.com/Lenny32/duckduckgo-google-button
-// @version      1.0
+// @version      1.1
 // @description  Adds custom styling to Google search box and dropdown elements
 // @author       Lenny32
 // @match        https://www.google.com/search?q=*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=google.com
-// @updateURL    https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/google-root.user.js
-// @downloadURL  https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/google-root.user.js
+// @updateURL    https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/google-root/google-root.user.js
+// @downloadURL  https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/google-root/google-root.user.js
 // @supportURL   https://github.com/Lenny32/duckduckgo-google-button/issues
 // @grant        none
 // @license      MIT
@@ -41,14 +41,9 @@
                 styles.borderBottomRightRadius !== '0px';
             
             if (hasBorder && hasBorderRadius) {
-                // Found the root container with border and border-radius
-                console.log('Found root element:', current);
-                console.log('Border-radius:', styles.borderRadius);
-                
-                // Apply red glow effect
+                // Apply red glow effect to the root container
                 current.style.boxShadow = '0 0 15px 3px rgba(255, 0, 0, 0.8)';
-                
-                break; // Continue to check for dropdown
+                break;
             }
             
             // Move up to the parent element

@@ -6,8 +6,8 @@
 // @author       Lenny32
 // @match        https://duckduckgo.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=duckduckgo.com
-// @updateURL    https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/duckduckgo-google-button.user.js
-// @downloadURL  https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/duckduckgo-google-button.user.js
+// @updateURL    https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/duckduckgo-google-button/duckduckgo-google-button.user.js
+// @downloadURL  https://raw.githubusercontent.com/Lenny32/duckduckgo-google-button/main/duckduckgo-google-button/duckduckgo-google-button.user.js
 // @supportURL   https://github.com/Lenny32/duckduckgo-google-button/issues
 // @grant        none
 // @license      MIT
